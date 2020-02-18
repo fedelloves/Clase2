@@ -6,6 +6,7 @@ import java.io.PrintWriter;
 import java.time.LocalDate;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -29,8 +30,12 @@ public class LoginServlet extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             
-            String usuario = request.getParameter("usuario");
-            String password = request.getParameter("password");
+            String user = request.getParameter("usuario");
+            String pass = request.getParameter("password");
+            
+            Cookie cookie = new Cookie("user", user);
+            
+            response.addCookie(cookie);
             
             out.println("<!DOCTYPE html>");
             out.println("<html>");
@@ -39,8 +44,8 @@ public class LoginServlet extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet LoginServlet at " + request.getContextPath() + "</h1>");
-            out.println("<h1>Usuario: " + usuario + "</h1>");
-            out.println("<h1>Password: " + password + "</h1>");
+            out.println("<h1>Usuario: " + user + "</h1>");
+            out.println("<h1>Password: " + pass + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }

@@ -18,7 +18,7 @@
         <form method="post" action="login">
             
             Usuario: <input type="text" name="usuario"></input> <br>
-            Password <input type="text" name="password"></input> <br>
+            Password <input type="password" name="password"></input> <br>
             
             <input type="submit" value="Enviar"></input>
             
