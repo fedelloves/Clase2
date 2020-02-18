@@ -28,6 +28,10 @@ public class LoginServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
+            
+            String usuario = request.getParameter("usuario");
+            String password = request.getParameter("password");
+            
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
@@ -35,7 +39,8 @@ public class LoginServlet extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet LoginServlet at " + request.getContextPath() + "</h1>");
-            out.println("<h1>Dia y Fecha" + LocalDate.now() + "</h1>");
+            out.println("<h1>Usuario: " + usuario + "</h1>");
+            out.println("<h1>Password: " + password + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }

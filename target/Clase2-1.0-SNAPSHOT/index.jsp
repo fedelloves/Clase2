@@ -14,13 +14,15 @@
     </head>
     <body>
         <h1>Hello World!</h1>
-        <%= new Date() %>
         
-        <%
-        for (int i = 0; i < 10; i++) {
-                out.println("Numero: " + i);
-            }
-        
-        %>
+        <form method="post" action="login">
+            
+            Usuario: <input type="text" name="usuario"></input> <br>
+            Password <input type="text" name="password"></input> <br>
+            
+            <input type="submit" value="Enviar"></input>
+            
+            
+        </form>
     </body>
 </html>
