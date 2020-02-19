@@ -1,4 +1,8 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package ar.com.educacionit.controlers;
 
 import java.io.IOException;
@@ -10,9 +14,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-@WebServlet(name = "LoginServlet", urlPatterns = {"/login"})
-public class LoginServlet extends HttpServlet {
+/**
+ *
+ * @author EducaciónIT
+ */
+@WebServlet(name = "DatosServlet", urlPatterns = {"/datos"})
+public class DatosServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -29,23 +36,22 @@ public class LoginServlet extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             
-            String user = request.getParameter("usuario");
-            String pass = request.getParameter("password");
+            Cookie[] cookies = request.getCookies();
             
-            Cookie cookie = new Cookie("user", user);
+            for(Cookie cooky: cookies){
+                out.println("Name: " + cooky.getName());
+                out.println("Value: " + cooky.getValue());
+                out.println("<br>");
+            }
             
-            response.addCookie(cookie);
             
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet LoginServlet</title>");            
+            out.println("<title>Servlet DatosServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet LoginServlet at " + request.getContextPath() + "</h1>");
-            out.println("<a href='datos'>Enviar</a>");
-            out.println("<h1>Usuario: " + user + "</h1>");
-            out.println("<h1>Password: " + pass + "</h1>");
+            out.println("<h1>Servlet DatosServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
